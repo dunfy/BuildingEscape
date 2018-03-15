@@ -2,8 +2,8 @@
 
 #include "Grabber.h"
 #include "Engine/World.h"
-#include "GameFramework/Actor.h"
 #include "GameFramework/PlayerController.h"
+#include "GameFramework/Actor.h"
 #include "DrawDebugHelpers.h"
 
 #define OUT
@@ -23,9 +23,16 @@ UGrabber::UGrabber()
 void UGrabber::BeginPlay()
 {
 	Super::BeginPlay();
-
 	UE_LOG(LogTemp, Warning, TEXT("Grabber reporting for duty!"));
-	
+
+	/// Look for attached Physics Handle 
+	PhysicsHandle = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
+	if (PhysicsHandle) {
+			//physics handle found 
+	}
+	else {
+		UE_LOG(LogTemp, Error, TEXT("%s PhyicsHandleComponent Not Found!"), *GetOwner()->GetName());
+	}
 }
 
 
