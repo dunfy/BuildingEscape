@@ -42,6 +42,6 @@ private:
 
 	float LastDoorOpenTime; 
 
-	AActor* ActorThatOpens; //Remember Pawn inerits from Actor. 
 	AActor* Owner;
+	float GetTotalMassOfActorsOnPlate();
 };
